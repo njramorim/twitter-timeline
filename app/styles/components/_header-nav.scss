@@ -13,6 +13,7 @@ header.topo > nav > div {
 		width: $col1-size;
 		padding: 5px;
 		position:relative;
+		display:inline-block;
 
 		figure {
 			display: block;
@@ -23,7 +24,7 @@ header.topo > nav > div {
 			border-radius:12px;
 			background: $clean-color;
 			position: absolute;
-			bottom: -60px;
+			bottom: -42px;
 			z-index:10;
 			a{
 				@include blockCenter;
@@ -34,6 +35,63 @@ header.topo > nav > div {
 				height:100%;
 			}
 
+		}
+
+		figcaption{
+			display:none;
+		}
+	}
+
+	ul.list-infos{
+		display:inline-block;
+		width: auto;
+
+		li{
+			display:inline-block;
+			text-align: center;
+
+			> a{
+				padding:11px 15px 7px 15px;
+				height: 60px;
+				display:block;
+				text-decoration:none;
+				border-color:$gray-color;
+    			border-bottom-style: solid;
+    			line-height: 1;
+    			color: $gray-color;
+				transition: 0.15s ease-in-out;
+
+				> span{
+					color: $dark-color;
+					font-size: 11px;
+	    			letter-spacing: .02em;
+	   				text-transform: uppercase;
+	    			transition: inherit;
+				}
+
+				p{
+					font-size: 18px;
+    				padding-top: 2px;
+    				font-weight: 500;
+	    			transition: inherit;
+				}
+
+				&.active{
+					color: $darker-color;
+					border-bottom-width: 4px;
+					cursor: default;
+				}
+
+				&:hover:not(.active){
+					color: $gray-color;
+					border-bottom-width: 4px;
+
+					> span{
+						color: $gray-color;
+					}
+
+				}
+			}
 		}
 	}
 }

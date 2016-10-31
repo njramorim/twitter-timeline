@@ -26,12 +26,31 @@ export default class HeaderNav extends Component {
 							</a>
 						</figcaption>
 					</h1>
-					<ul>
-						<li>item 1</li>
-						<li>item 2</li>
-						<li>item 3</li>
-						<button>Settings</button>
-						<button>Follow</button>
+					<ul className="list-infos">
+						<li>
+							<a className="active" href="">
+								<span>TWEETS</span>
+								<p>22,8 mil</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span>SEGUINDO</span>
+								<p>1.321</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span>SEGUIDORES</span>
+								<p>238 mil</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span>CURTIDAS</span>
+								<p>24</p>
+							</a>
+						</li>
 					</ul>
 				</div>	
 			</nav>
