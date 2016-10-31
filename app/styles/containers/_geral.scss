@@ -1,0 +1,4 @@
+body > #app > div {
+	@include blockCenter;
+	overflow:hidden;
+}

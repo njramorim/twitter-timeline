@@ -2,6 +2,12 @@
 @import 'typography';
 @import 'base';
 
-@import 'elements/geral';
-@import 'elements/container';
-@import 'elements/queries';
+@import 'containers/geral';
+@import 'containers/header';
+@import 'containers/content';
+
+
+@import 'components/header-figure';
+@import 'components/header-nav';
+
+@import 'queries';

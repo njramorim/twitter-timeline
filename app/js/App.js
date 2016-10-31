@@ -1,32 +1,24 @@
-import React from 'react';
+import React from 'react'
+import Header from './containers/Header'
+import Content from './containers/Content'
+
 
 
 const propTypes = {
 
-};
+}
 
 class App extends React.Component {
 
   constructor(props) {
-    super(props);
-
-    this.onUserChange = this.onUserChange.bind(this);
-
+    super(props)
     this.state = {
       currentUser: {}
-    };
-  }
-
-  onUserChange(err, user) {
-    if ( err ) {
-      this.setState({ error: err });
-    } else {
-      this.setState({ currentUser: user || {}, error: null });
     }
   }
 
   componentWillMount() {
-    console.log('About to mount App');
+    console.log('About to mount App')
   }
 
   componentDidMount() {
@@ -47,11 +39,11 @@ class App extends React.Component {
       	<Header />
         <Content />
       </div>
-    );
+    )
   }
 
 }
 
-App.propTypes = propTypes;
+App.propTypes = propTypes
 
-export default App;
+export default App
