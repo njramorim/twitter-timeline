@@ -1,12 +1,12 @@
 import gulp        from 'gulp';
 import runSequence from 'run-sequence';
 
-gulp.task('dev', ['clean'],(cb) => {
+gulp.task('dev', ['clean'],(callback) => {
 
-  cb = cb || function() {};
+  callback = callback || function() {};
 
   global.isProd = false;
 
-  return runSequence(['sass', 'browserify', 'copyFonts', 'copyIndex'], 'watch', cb);
+  return runSequence(['sass', 'browserify', 'copyFonts', 'copyIndex'], 'watch',  callback);
 
 });

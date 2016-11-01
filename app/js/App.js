@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './containers/Header'
 import Content from './containers/Content'
 
-
+import {twitterInfos} from './actions/twitterInfos'
 
 const propTypes = {
 
@@ -19,10 +19,11 @@ class App extends React.Component {
 
   componentWillMount() {
     console.log('About to mount App')
+
   }
 
   componentDidMount() {
-
+    twitterInfos()
   }
 
   componentWillUnmount() {

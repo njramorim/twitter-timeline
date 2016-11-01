@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import ContentSummary from './../components/ContentSummary'
 
 
 export default class Content extends Component {
@@ -9,15 +10,17 @@ export default class Content extends Component {
 	render(){
 		return(
 			<div className="contentWrapper">
-				<section>
-					barra left
-				</section>
-				<section>
-					barra meio
-				</section>
-				<section>
-					barra right
-				</section>
+				<div>
+					<section>
+						<ContentSummary />
+					</section>
+					<section>
+						barra meio
+					</section>
+					<section>
+						barra right
+					</section>
+				</div>
 			</div>
 		)
 	}

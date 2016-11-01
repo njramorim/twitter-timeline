@@ -12,41 +12,41 @@ export default class HeaderNav extends Component {
 				<div>
 					<h1>
 						<figure>
-							<a href="" >
+							<a href="#" >
 								<img src="https://pbs.twimg.com/profile_images/777959576482287617/taEJPem9_400x400.jpg" />
 							</a>
 						</figure>
 						<figcaption>
-							<a href="">
+							<a href="#">
 								americanas.com
 								<span>americanascom</span>
 							</a>
-							<a href="">
+							<a href="https://twitter.com/help/verified" target="_blank">
 								<i>verified</i>
 							</a>
 						</figcaption>
 					</h1>
 					<ul className="list-infos">
 						<li>
-							<a className="active" href="">
+							<a className="active" href="#">
 								<span>TWEETS</span>
 								<p>22,8 mil</p>
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="#">
 								<span>SEGUINDO</span>
 								<p>1.321</p>
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="#">
 								<span>SEGUIDORES</span>
 								<p>238 mil</p>
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="#">
 								<span>CURTIDAS</span>
 								<p>24</p>
 							</a>

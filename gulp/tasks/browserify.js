@@ -14,7 +14,7 @@ import debowerify   from 'debowerify';
 import handleErrors from '../util/handle-errors';
 import config       from '../config';
 
-// Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
+
 function buildScript(file, watch) {
 
   let bundler = browserify({
