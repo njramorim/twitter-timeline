@@ -7,6 +7,6 @@ gulp.task('dev', ['clean'],(callback) => {
 
   global.isProd = false;
 
-  return runSequence(['sass', 'browserify', 'copyFonts', 'copyIndex'], 'watch',  callback);
+  return runSequence([ 'sass', 'browserify', 'copyFonts', 'copyIndex'], 'watch',  callback);
 
 });
