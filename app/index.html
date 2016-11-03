@@ -1,22 +1,30 @@
 <!doctype html>
-<html lang="pt-br">
-  <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width">
+<html>
+    <head>
+        <script src="js/libs/polyfill.js"></script>
+        <script src="js/libs/system.js"></script>
+        <script>
+        // set our baseURL reference path
+        System.config({
+            packages: {        
+                js: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                },
+            },
+            meta: {
+                'js/*': {format: 'cjs'}
+            }
+        });
+                  
+         System.import('js/index.js')
+                     .then(null, console.error.bind(console));
+        </script>
 
-      <title>Twitter Americanas.com</title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
 
-      <link rel="stylesheet" href="/css/main.css">
-  </head>
-  <body>
-
-    <div id="app">
-      
-    </div>
-
-    <script src="/js/main.js"></script>
-
-  </body>
+        <a href="link.html">Link to next!!!!!</a> 
+    </body>
 </html>

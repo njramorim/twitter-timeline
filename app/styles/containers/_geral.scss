@@ -1,8 +1,0 @@
-body{
-	font-family: Arial, sans-serif;
-}
-
-body > #app > div {
-	@include blockCenter;
-	overflow:hidden;
-}

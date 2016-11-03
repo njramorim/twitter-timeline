@@ -1,10 +1,12 @@
-import React     from 'react';
-import ReactDOM  from 'react-dom';
-import Init  from './Init';
+"use strict";
 
-if ( process.env.NODE_ENV !== 'production' ) {
-  // Enable React devtools
-  window.React = React;
-}
+var _codes = require("./codes");
 
-ReactDOM.render(Init, document.getElementById('app'));
+var tp = new _codes.TapeMachine();
+tp.record("Hello... Hellooooo!!! Hell!!!!!");
+tp.play();
+// => Hello... Hellooooo!!! Helloooooo!!!!!
+
+var p = document.createElement("p");
+p.innerText = "Victory!!!";
+document.querySelector("body").appendChild(p);

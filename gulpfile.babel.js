@@ -1,4 +1,7 @@
-global.isProd = false;
+import fs  from 'fs'
 
-import './gulp';
+const TASKS = fs.readdirSync('./_config/tasks/')
 
+TASKS.forEach((task) => {
+  require('./_config/tasks/' + task)
+})
