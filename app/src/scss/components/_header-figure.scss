@@ -1,0 +1,22 @@
+header.topo > figure{
+	@include blockCenter;
+	height:500px;
+	position:relative;
+	overflow: hidden;
+
+	img{
+		position: absolute;
+	    left: 0;
+	    right: 0;
+	    top: -9999px;
+	    bottom: -9999px;
+	    margin: auto 0;
+	    width: 100%;
+	}
+
+	&:before {
+	    @include fullPseudo;
+	    box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.2);
+	    z-index: 1;
+	}
+}

@@ -4,10 +4,8 @@ import config from './../config'
 
 
 gulp.task('dev',  function(){
-    runSequence([
-    	'compile',
+    runSequence(
     	'connect',
     	'watch'
-    	
-    ])
+    )
 });

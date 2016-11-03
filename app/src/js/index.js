@@ -1,10 +1,10 @@
-import {TapeMachine} from "./codes";
+import React     from 'react'
+import ReactDOM  from 'react-dom'
+import Init  from './Init'
 
-const tp = new TapeMachine();
-tp.record("Hello... Hellooooo!!! Hell!!!!!");
-tp.play();
-// => Hello... Hellooooo!!! Helloooooo!!!!!
+// if ( process.env.NODE_ENV !== 'production' ) {
+//   // Enable React devtools
+//   window.React = React;
+// }
 
-const p = document.createElement("p");
-p.innerText = "Victory!!!";
-document.querySelector("body").appendChild(p);
+ReactDOM.render(Init, document.getElementById('app'))

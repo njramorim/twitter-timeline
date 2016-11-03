@@ -1,0 +1,28 @@
+//sizes
+
+$grid-size: 1190px;
+$col1-size: 300px;
+
+//cores
+$first-color: #f5f8fa;
+$clean-color: #ffffff;
+$gray-color: #A8A1A2;
+$darkGray-color: #8899a6;
+$dark-color: #66757f;
+$darker-color: #292f33;
+
+
+//preSets
+@mixin blockCenter {
+	display:block;
+	width:100%;
+	margin:0 auto;
+}
+
+@mixin fullPseudo {
+	display: block;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

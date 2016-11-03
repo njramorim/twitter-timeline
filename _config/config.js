@@ -1,6 +1,7 @@
 const config = {
 	dev:'app',
-	devDir: 'app/src',
+	devSrc: 'app/src',
+	devDist: 'app/dist',
 	build: 'build'
 }
 

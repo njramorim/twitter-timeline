@@ -1,3 +1,14 @@
-body{
-	background: black;
-}
+@import 'vars';
+@import 'typography';
+@import 'base';
+
+@import 'containers/geral';
+@import 'containers/header';
+@import 'containers/content';
+
+
+@import 'components/header-figure';
+@import 'components/header-nav';
+@import 'components/content-summary';
+
+@import 'queries';

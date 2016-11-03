@@ -4,13 +4,15 @@ import livereload from 'gulp-livereload'
 
 import config from './../config'
 
-gulp.task('watch',() => {
+gulp.task('watch',['browser-sync'],() => {
+
+
 
   livereload.listen()
-  gulp.watch(config.devDir + '/**/*.js', ['babel'])
+  gulp.watch(config.devSrc + '/**/*.scss', ['sass'])
 
   livereload.listen()
-  gulp.watch(config.devDir + '/**/*.scss', ['sass'])
+  gulp.watch(config.devSrc + '/**/*.js', ['babel'])
 
   gulp.watch([
   	config.dev + '/**/*.html', 
@@ -18,5 +20,8 @@ gulp.task('watch',() => {
   	config.dev + '/**/*.css', 
   	config.dev + '/**/*.js', 
   ], browserSync.reload)
+
+
+
 
 })
