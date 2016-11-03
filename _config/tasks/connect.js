@@ -4,7 +4,7 @@ import browserSync from 'browser-sync'
 
 import config from './../config'
 
-//task that fires up php server at port 8001
+// task that fires up php server at port 8001
 gulp.task('connect', (callback) => {
   connect.server({
     port: 8001,

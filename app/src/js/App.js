@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import Header from './containers/Header'
 import Content from './containers/Content'
 
-// import {twitterInfos} from './actions/twitterInfos'
+import {twitterInfos} from './actions/twitterInfos'
 
 const propTypes = {
 
@@ -23,7 +23,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // twitterInfos()
+  
   }
 
   componentWillUnmount() {

@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import ContentSummary from './../components/ContentSummary'
+import TwitFeed from './../components/TwitFeed'
 
 
 export default class Content extends Component {
@@ -15,7 +16,7 @@ export default class Content extends Component {
 						<ContentSummary />
 					</section>
 					<section>
-						barra meio
+						<TwitFeed screen_name="quenesswebblog" count="10"/>
 					</section>
 					<section>
 						barra right
