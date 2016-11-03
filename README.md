@@ -1,8 +1,4 @@
-gulp connect
+gulp compile
 gulp watch
 
-or npm run dev
-
-app-development//
-	gulp cleanDev
-	gulp build
+gulp cleanDist

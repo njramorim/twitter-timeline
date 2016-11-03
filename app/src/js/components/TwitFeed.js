@@ -8,7 +8,7 @@ export default class TwitFeed extends Component{
     var t = this;
 
     // establish ajax call
-    axios.get('tweets.php', {
+    axios.get('serv/tweets.php', {
       params: {
         screen_name: this.props.screen_name,
         count: this.props.count

@@ -466,7 +466,7 @@ var TwitFeed = function (_Component) {
       var t = this;
 
       // establish ajax call
-      _axios2.default.get('tweets.php', {
+      _axios2.default.get('serv/tweets.php', {
         params: {
           screen_name: this.props.screen_name,
           count: this.props.count
