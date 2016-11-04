@@ -13,7 +13,7 @@ export default class HeaderNav extends Component {
 					<h1>
 						<figure>
 							<a href="#" >
-								<img src="https://pbs.twimg.com/profile_images/777959576482287617/taEJPem9_400x400.jpg" />
+								<img src={this.props.logo}/>
 							</a>
 						</figure>
 						<figcaption>
@@ -30,25 +30,25 @@ export default class HeaderNav extends Component {
 						<li>
 							<a className="active" href="#">
 								<span>TWEETS</span>
-								<p>22,8 mil</p>
+								<p>{this.props.nTweets}</p>
 							</a>
 						</li>
 						<li>
 							<a href="#">
 								<span>SEGUINDO</span>
-								<p>1.321</p>
+								<p>{this.props.nSeguindo}</p>
 							</a>
 						</li>
 						<li>
 							<a href="#">
 								<span>SEGUIDORES</span>
-								<p>238 mil</p>
+								<p>{this.props.nSeguidores}</p>
 							</a>
 						</li>
 						<li>
 							<a href="#">
 								<span>CURTIDAS</span>
-								<p>24</p>
+								<p>{this.props.nCurtidas}</p>
 							</a>
 						</li>
 					</ul>

@@ -40,7 +40,13 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      currentUser: {}
+      screenName: '',
+      banner: '',
+      logo: '',
+      nTweets: '',
+      nSeguindo: '',
+      nSeguidores: '',
+      nCurtidas: ''
     };
     return _this;
   }
@@ -49,6 +55,7 @@ var App = function (_Component) {
     key: 'componentWillMount',
     value: function componentWillMount() {
       console.log('About to mount App');
+      (0, _twitterInfos.twitterInfos)('account', '', this);
     }
   }, {
     key: 'componentDidMount',
@@ -57,16 +64,20 @@ var App = function (_Component) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {}
   }, {
-    key: 'renderChildren',
-    value: function renderChildren() {}
-  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_Content2.default, null)
+        _react2.default.createElement(_Header2.default, {
+          bannerImg: this.state.banner,
+          logo: this.state.logo,
+          nTweets: this.state.nTweets,
+          nSeguindo: this.state.nSeguindo,
+          nSeguidores: this.state.nSeguidores,
+          nCurtidas: this.state.nCurtidas
+        }),
+        _react2.default.createElement(_Content2.default, { logoImg: this.state.logo })
       );
     }
   }]);
@@ -99,7 +110,7 @@ exports.default = _react2.default.createElement(_App2.default, null);
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 exports.twitterInfos = twitterInfos;
 
@@ -109,7 +120,48 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function twitterInfos() {}
+function twitterInfos(info, param, el) {
+
+    function avatar(logoString) {
+        var ls = logoString;
+        console.log(ls);
+
+        var lsSplit = ls.split('_normal')[0];
+        var lsAvatar = lsSplit + '_400x400.jpg';
+
+        return lsAvatar;
+    }
+
+    function fmtNumber(number, separatorPos, separator, positionEnd, textEnd) {
+        var string = number.toString();
+        var strSep = string.slice(0, separatorPos);
+        var strJoin = strSep + separator + string.slice(separatorPos, positionEnd);
+        var output = strJoin + ' ' + textEnd;
+
+        console.log(output);
+        return output;
+    }
+
+    _axios2.default.get('serv/' + info + '.php').then(function (result) {
+        //console.log(JSON.stringify(result.data))
+        //console.log(result.data[param])
+        var rd = result.data;
+        console.log(JSON.stringify(rd));
+
+        el.setState({
+            screenName: rd['screen_name'],
+            banner: rd['profile_banner_url'],
+            logo: avatar(rd['profile_image_url']),
+            nTweets: fmtNumber(rd['statuses_count'], 2, ',', 3, 'mil'),
+
+            nSeguindo: fmtNumber(rd['friends_count'], 1, '.', 4, ''),
+
+            nSeguidores: fmtNumber(rd['followers_count'], 0, '', 3, 'mil'),
+
+            nCurtidas: rd['favourites_count']
+        });
+    });
+}
 
 },{"axios":11}],4:[function(require,module,exports){
 "use strict";
@@ -217,7 +269,7 @@ var ContentSummary = function (_Component) {
 exports.default = ContentSummary;
 
 },{"react":206}],5:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -225,7 +277,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -247,12 +299,12 @@ var HeaderFigure = function (_Component) {
 	}
 
 	_createClass(HeaderFigure, [{
-		key: "render",
+		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				"figure",
+				'figure',
 				null,
-				_react2.default.createElement("img", { src: "https://pbs.twimg.com/profile_banners/35019751/1474315029/1500x500" })
+				_react2.default.createElement('img', { src: this.props.bannerImg })
 			);
 		}
 	}]);
@@ -310,7 +362,7 @@ var HeaderNav = function (_Component) {
 							_react2.default.createElement(
 								"a",
 								{ href: "#" },
-								_react2.default.createElement("img", { src: "https://pbs.twimg.com/profile_images/777959576482287617/taEJPem9_400x400.jpg" })
+								_react2.default.createElement("img", { src: this.props.logo })
 							)
 						),
 						_react2.default.createElement(
@@ -354,7 +406,7 @@ var HeaderNav = function (_Component) {
 								_react2.default.createElement(
 									"p",
 									null,
-									"22,8 mil"
+									this.props.nTweets
 								)
 							)
 						),
@@ -372,7 +424,7 @@ var HeaderNav = function (_Component) {
 								_react2.default.createElement(
 									"p",
 									null,
-									"1.321"
+									this.props.nSeguindo
 								)
 							)
 						),
@@ -390,7 +442,7 @@ var HeaderNav = function (_Component) {
 								_react2.default.createElement(
 									"p",
 									null,
-									"238 mil"
+									this.props.nSeguidores
 								)
 							)
 						),
@@ -408,7 +460,7 @@ var HeaderNav = function (_Component) {
 								_react2.default.createElement(
 									"p",
 									null,
-									"24"
+									this.props.nCurtidas
 								)
 							)
 						)
@@ -459,22 +511,7 @@ var TwitFeed = function (_Component) {
 
   _createClass(TwitFeed, [{
     key: 'componentWillMount',
-
-
-    // get data ready before rendering
-    value: function componentWillMount() {
-      var t = this;
-
-      // establish ajax call
-      _axios2.default.get('serv/tweets.php', {
-        params: {
-          screen_name: this.props.screen_name,
-          count: this.props.count
-        }
-      }).then(function (result) {
-        console.log(result.data);
-      });
-    }
+    value: function componentWillMount() {}
   }, {
     key: 'render',
     value: function render() {
@@ -546,7 +583,7 @@ var Content = function (_Component) {
 					_react2.default.createElement(
 						'section',
 						null,
-						_react2.default.createElement(_TwitFeed2.default, { screen_name: 'quenesswebblog', count: '10' })
+						_react2.default.createElement(_TwitFeed2.default, { screen_name: 'americanascom', count: '10' })
 					),
 					_react2.default.createElement(
 						'section',
@@ -602,13 +639,25 @@ var Header = function (_Component) {
 	}
 
 	_createClass(Header, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
 				'header',
 				{ className: 'topo' },
-				_react2.default.createElement(_HeaderFigure2.default, null),
-				_react2.default.createElement(_HeaderNav2.default, null)
+				_react2.default.createElement(_HeaderFigure2.default, { bannerImg: this.props.bannerImg }),
+				_react2.default.createElement(_HeaderNav2.default, {
+					logo: this.props.logo,
+					nTweets: this.props.nTweets,
+					nSeguindo: this.props.nSeguindo,
+					nSeguidores: this.props.nSeguidores,
+					nCurtidas: this.props.nCurtidas
+				})
 			);
 		}
 	}]);

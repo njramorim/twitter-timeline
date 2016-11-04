@@ -16,7 +16,7 @@ export default class Content extends Component {
 						<ContentSummary />
 					</section>
 					<section>
-						<TwitFeed screen_name="quenesswebblog" count="10"/>
+						<TwitFeed screen_name="americanascom" count="10"/>
 					</section>
 					<section>
 						barra right
