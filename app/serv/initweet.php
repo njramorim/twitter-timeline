@@ -20,7 +20,7 @@ $params = array(
     'screen_name' => $q,
 	'count' => $count,  
   	'includes_rts' => false,
-  	'exclude_replies' => true
+  	'exclude_replies' => false
 ); 
 
 $results = $twitter->request($apiInfos, 'GET', $params);

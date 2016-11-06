@@ -12,69 +12,63 @@ const TwitFeed = React.createClass({
     }
   },
 
+
+  getTweets(id) {
+    const rThis = this
+      axios.get('serv/initweet.php', {
+        params: {
+          screen_name: 'americanascom',
+          count: 10
+        }
+
+      }).then((result) =>{   
+        console.log('tweets: ', result.data) 
+
+        let quantos = result.data.length
+        rThis.setState({
+          tweets: result.data,
+          quant: quantos,
+          lastItem: result.data[quantos - 1].id
+        });
+        console.log('first: ', result.data[0].id)
+        console.log('last: ', result.data[quantos - 1].id)
+      })
+  },
+
+
   loadMore() {
     const rThis = this
       axios.get('serv/tweets.php', {
         params: {
           screen_name: 'americanascom',
-          count: 200,
-          exclude_replies: true,
-          max_id: 791685937474465792
+          count: 10,
+          max_id: rThis.state.lastItem
         }
 
       }).then((result) =>{   
-        console.log('tweets: ', result.data) 
-
+        let jaTem = rThis.state.tweets
         let quantos = result.data.length
+        let novos = result.data
+        let agoraTem = jaTem.concat(novos)
+        
+        console.log('jaTinha: ', rThis.state.tweets )
         rThis.setState({
-          tweets: result.data,
+          tweets: agoraTem,
           quant: quantos,
           lastItem: result.data[quantos - 1].id
         });
-        console.log('first: ', result.data[0].id)
-        console.log('last: ', result.data[quantos - 1].id)
-      })
-  },
-
-  getInfos(id) {
-    const rThis = this
-      axios.get('serv/initweet.php', {
-        params: {
-          screen_name: 'americanascom',
-          count: 200
-        }
-
-      }).then((result) =>{   
-        console.log('tweets: ', result.data) 
-
-        let quantos = result.data.length
-        rThis.setState({
-          tweets: result.data,
-          quant: quantos,
-          lastItem: result.data[quantos - 1].id
-        });
-        console.log('first: ', result.data[0].id)
-        console.log('last: ', result.data[quantos - 1].id)
+        console.log('second first: ', result.data[0].id)
+        console.log('second last: ', result.data[quantos - 1].id)
+        console.log('agoraTem: ', rThis.state.tweets )
       })
   },
   
   componentDidMount() {
-    //this.serverRequest = this.getInfos()
+    this.serverRequest = this.getTweets()
   },
   
   componentWillUpdate() {
-      // let newTweets = result.data
-      // let tweets = rThis.state.tweets.slice()
-      // tweets.push(newTweets)
 
-      // rThis.setState({ 
-      //   tweets: rThis.state.tweets.concat([newTweets]),
-      // })
-      // let quantos = result.data.length
-      // rThis.setState({ 
-      //   quant: tweets.length,
-      //   lastItem: result.data[quantos - 1].id
-      // })
   },
 
   componentWillUnmount() {
@@ -87,9 +81,7 @@ const TwitFeed = React.createClass({
             <button onClick={this.loadMore}> botones</button>
         <ol className="feedList">
           {this.state.tweets.map((tweet , i) => {
-            if(tweet.in_reply_to_screen_name != null){
-              return null
-            }
+     
             return (
               <TFeedItem 
                 key={i+'-'+tweet.id}
@@ -111,3 +103,6 @@ const TwitFeed = React.createClass({
 
 export default TwitFeed
 
+       // if(tweet.in_reply_to_screen_name != null){
+            //   return null
+            // }

@@ -21,7 +21,7 @@ $params = array(
     'screen_name' => $q,
 	'count' => $count,  
   	'includes_rts' => false,
-  	'exclude_replies' => true,
+  	'exclude_replies' => false,
   	'max_id' => $max
 ); 
 
@@ -31,3 +31,5 @@ $results = $twitter->request($apiInfos, 'GET', $params);
 echo json_encode($results);
 
 ?>
+
+

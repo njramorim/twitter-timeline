@@ -1015,67 +1015,57 @@ var TwitFeed = _react2.default.createClass({
       tweets: []
     };
   },
+  getTweets: function getTweets(id) {
+    var rThis = this;
+    _axios2.default.get('serv/initweet.php', {
+      params: {
+        screen_name: 'americanascom',
+        count: 10
+      }
+
+    }).then(function (result) {
+      console.log('tweets: ', result.data);
+
+      var quantos = result.data.length;
+      rThis.setState({
+        tweets: result.data,
+        quant: quantos,
+        lastItem: result.data[quantos - 1].id
+      });
+      console.log('first: ', result.data[0].id);
+      console.log('last: ', result.data[quantos - 1].id);
+    });
+  },
   loadMore: function loadMore() {
     var rThis = this;
     _axios2.default.get('serv/tweets.php', {
       params: {
         screen_name: 'americanascom',
-        count: 200,
-        exclude_replies: true,
-        max_id: 791685937474465792
+        count: 10,
+        max_id: rThis.state.lastItem
       }
 
     }).then(function (result) {
-      console.log('tweets: ', result.data);
-
+      var jaTem = rThis.state.tweets;
       var quantos = result.data.length;
+      var novos = result.data;
+      var agoraTem = jaTem.concat(novos);
+
+      console.log('jaTinha: ', rThis.state.tweets);
       rThis.setState({
-        tweets: result.data,
+        tweets: agoraTem,
         quant: quantos,
         lastItem: result.data[quantos - 1].id
       });
-      console.log('first: ', result.data[0].id);
-      console.log('last: ', result.data[quantos - 1].id);
-    });
-  },
-  getInfos: function getInfos(id) {
-    var rThis = this;
-    _axios2.default.get('serv/initweet.php', {
-      params: {
-        screen_name: 'americanascom',
-        count: 200
-      }
-
-    }).then(function (result) {
-      console.log('tweets: ', result.data);
-
-      var quantos = result.data.length;
-      rThis.setState({
-        tweets: result.data,
-        quant: quantos,
-        lastItem: result.data[quantos - 1].id
-      });
-      console.log('first: ', result.data[0].id);
-      console.log('last: ', result.data[quantos - 1].id);
+      console.log('second first: ', result.data[0].id);
+      console.log('second last: ', result.data[quantos - 1].id);
+      console.log('agoraTem: ', rThis.state.tweets);
     });
   },
   componentDidMount: function componentDidMount() {
-    //this.serverRequest = this.getInfos()
+    this.serverRequest = this.getTweets();
   },
-  componentWillUpdate: function componentWillUpdate() {
-    // let newTweets = result.data
-    // let tweets = rThis.state.tweets.slice()
-    // tweets.push(newTweets)
-
-    // rThis.setState({ 
-    //   tweets: rThis.state.tweets.concat([newTweets]),
-    // })
-    // let quantos = result.data.length
-    // rThis.setState({ 
-    //   quant: tweets.length,
-    //   lastItem: result.data[quantos - 1].id
-    // })
-  },
+  componentWillUpdate: function componentWillUpdate() {},
   componentWillUnmount: function componentWillUnmount() {
     this.serverRequest.abort();
   },
@@ -1092,9 +1082,7 @@ var TwitFeed = _react2.default.createClass({
         'ol',
         { className: 'feedList' },
         this.state.tweets.map(function (tweet, i) {
-          if (tweet.in_reply_to_screen_name != null) {
-            return null;
-          }
+
           return _react2.default.createElement(_TFeedItem2.default, {
             key: i + '-' + tweet.id,
             userName: tweet.user.name,
@@ -1112,6 +1100,10 @@ var TwitFeed = _react2.default.createClass({
 });
 
 exports.default = TwitFeed;
+
+// if(tweet.in_reply_to_screen_name != null){
+//   return null
+// }
 
 },{"./../actions/twitterInfos":3,"./TFeedItem":7,"axios":17,"react":213}],13:[function(require,module,exports){
 "use strict";
