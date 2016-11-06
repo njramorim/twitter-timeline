@@ -1,6 +1,7 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import HeaderFigure from './../components/HeaderFigure'
 import HeaderNav from './../components/HeaderNav'
+import TopBar from './../components/TopBar' 
 
 
 export default class Header extends Component {
@@ -18,7 +19,8 @@ export default class Header extends Component {
 	render(){
 		return(
 			<header className="topo">
-				<HeaderFigure bannerImg={this.props.bannerImg}/>
+				<TopBar />
+				<HeaderFigure bannerImg={this.props.bannerImg} />
 				<HeaderNav 
 					logo={this.props.logo} 
 		          	nTweets = {this.props.nTweets}

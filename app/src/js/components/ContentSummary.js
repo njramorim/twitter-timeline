@@ -1,8 +1,16 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 
 export default class ContentSummary extends Component {
 	constructor(props){
 		super(props)
+	}
+
+	componentWillMount() {
+		
+	}
+
+	componentDidMount() {
+
 	}
 
 	render(){
@@ -11,23 +19,34 @@ export default class ContentSummary extends Component {
 				<div className="infos">
 					<h1>
 						<span>
-							<a href="#">americanas.com</a>
+							<a href="#">{this.props.name}</a>
 						</span> 
-						<i className="verified">
-							<a href="https://twitter.com/help/verified"></a>
-						</i>	
+						<a href="https://twitter.com/help/verified">
+							<i className={'verified-'+this.props.verified}>
+							</i>	
+						</a>
 						<span>
-							<a href="#">americanascom</a>
+							<a href="#">{this.props.screenName}</a>
 						</span>
 					</h1>
-					<h2>
-							A maior loja na palma da sua mão: <a href="https://t.co/J5pdYz5brU" target="blank">goo.gl/Ntg9wN</a>
+					<h2 dangerouslySetInnerHTML={{ __html: this.props.description}}>
 					</h2>
-					<p className="ico-local">Brasil</p>
-					<p className="ico-link"><a href="http://t.co/PfJKJTZmj1" target="_blank">americanas.com</a></p>
-					<p className="ico-date">Participa desde abril de 2009</p>
+					<p className="ico-local">{this.props.location}</p>
+					<p className="ico-link"><a href={this.props.url} target="_blank">{this.props.name}</a></p>
+					<p className="ico-date">
+						{this.props.created}
+					</p>
 				</div>
+
+				<button className="tweetTo" type="button">
+					<span>Tweetar para</span>
+				</button>
 			</div>
 		)
 	}
 }
+
+
+// A maior loja na palma da sua mão: <a href="https://t.co/J5pdYz5brU" target="blank">goo.gl/Ntg9wN</a>
+
+//Participa desde abril de 2009

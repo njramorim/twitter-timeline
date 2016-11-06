@@ -3,6 +3,7 @@ header.topo > figure{
 	height:500px;
 	position:relative;
 	overflow: hidden;
+	margin-top:46px;
 
 	img{
 		position: absolute;
@@ -16,6 +17,9 @@ header.topo > figure{
 
 	&:before {
 	    @include fullPseudo;
+	    height: calc(100% + 46px);
+	    top:-46px;
+	    width:120%;
 	    box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.2);
 	    z-index: 1;
 	}

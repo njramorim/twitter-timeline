@@ -1,0 +1,66 @@
+
+.feedList > li > article > header {
+	> figure{
+		display:inline-block;
+		cursor:initial;
+		a{
+			text-decoration: none;
+			color: inherit;
+		}
+		img{
+			float:left;
+			position:absolute;
+			width: 48px;
+		    height: 48px;
+		    border-radius: 5px;
+		    margin-left:-58px;
+		}
+		figcaption{
+			display:inline-block;
+			margin-top: -2px;
+			vertical-align: top;
+			b{	
+				font-size:14px;
+				font-weight: bold;
+    			color: $darker-color;
+			}
+			span{
+				font-size: 13px;
+    			color: $darkGray-color;
+    			&:before{
+    				content: ' ';
+    			}
+			}
+
+		}
+
+		> a:hover{
+			b{
+				text-decoration:underline;
+				color: $gray-color;
+			}
+		}
+
+
+		&:after{
+			color: $darkGray-color;
+			content: "\00b7";
+			margin:0px 4px;
+			text-decoration: none;
+			vertical-align: top;
+			font-size: 13px;
+		}
+	}
+
+	> .time{
+		display:inline-block;
+		font-size: 13px;
+		color: $darkGray-color;
+		vertical-align: top;
+		cursor:pointer;
+		&:hover{
+			color: $gray-color;
+			text-decoration: underline;
+		}
+	}
+}

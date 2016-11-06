@@ -11,13 +11,19 @@ $ACCESS_TOKEN_SECRET = 'xGh94n5x78WZ38uTQ8qhQE8U5lhst88pNyD4ezscrsG40';
 // ENTER HERE YOUR CREDENTIALS (see readme.txt)
 $twitter = new Twitter($CONSUMER_KEY, $CONSUMER_SECRET, $ACCESS_TOKEN, $ACCESS_TOKEN_SECRET);
 
-$name = 'americanascom';
-$apiInfos = 'users/show.json?screen_name='.$name;
+$q = $_GET['screen_name'];
+$count = $_GET['count'];
+$apiInfos = 'statuses/user_timeline';
+$max = $_GET['max_id'] ;
 
 // api data
 $params = array(
-  	'includes_rts' => true
-);
+    'screen_name' => $q,
+	'count' => $count,  
+  	'includes_rts' => false,
+  	'exclude_replies' => true,
+  	'max_id' => $max
+); 
 
 $results = $twitter->request($apiInfos, 'GET', $params);
 

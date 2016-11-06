@@ -1,0 +1,86 @@
+.tweetActions {
+	width:100%;
+	display:block;
+	margin-top:11px;
+
+	> ul {
+		width:100%;
+		display:block;
+	}
+}
+
+.tweetActions > ul > li {
+	display: inline-block;
+	width:80px;
+	text-align:left;
+
+	> ul {
+		display:none;
+	}
+}
+
+.tweetActions > ul > li {
+	> button{
+		background: transparent;
+		padding:0px;
+		border:0px;
+		margin:0px;
+		font-size:16px;
+		line-height:1;
+		cursor: pointer;
+		color: $gray2-color;
+		i{
+			background: transparent;
+			display: inline-block;
+			font-style: normal;
+			vertical-align: baseline;
+			position: relative;
+			&:before{
+			    display: block;
+			    font-family: "rosettaicons";
+			    font-weight: normal;
+			    font-style: normal;
+			    text-align: center;
+			    -webkit-font-smoothing: antialiased;
+			}
+		}
+		span{
+
+		}
+		p{
+			display:none;
+		}
+
+		&:hover {
+			color: $gray-color;
+		}
+
+	}
+
+	&.act-answer i:before{
+		content:"\f151";
+	}
+
+	&.act-retweet button:hover{
+		color: $green-color;
+	}
+	&.act-retweet i:before{
+		content:"\f152";
+	}
+
+	&.act-like i{
+		background-image: url('/../../static/img/web_heart_animation.png');
+		background-repeat: no-repeat;
+		background-position: 0px 0px;
+		width:17px;
+		height:16px;
+	}
+	&.act-like button:hover i{
+		background-position: -18px 0px;
+	}
+
+	&.act-plus i:before{
+		content:"\f150";
+	}
+
+}

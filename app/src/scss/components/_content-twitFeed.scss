@@ -1,0 +1,23 @@
+.twitFeed{
+	width:100%;
+	background: $clean-color;
+	margin-bottom: 20px;
+	> .feedList {
+		> li{
+			border: 1px solid $lightGray-color;
+			border-top:0px;
+			display:block;
+			width:100%;
+			padding:11px 12px;
+			cursor:pointer;
+
+			&:hover{
+				background: $first-color;
+			}
+
+			> article{
+				margin-left:58px;
+			}
+		}
+	}
+}

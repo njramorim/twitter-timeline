@@ -25,8 +25,9 @@ header.topo > nav > div {
 			border-radius:12px;
 			background: $clean-color;
 			position: absolute;
-			bottom: -42px;
+			bottom: -27px;
 			z-index:10;
+			margin-left:5px;
 			a{
 				@include blockCenter;
 				height:100%;
@@ -46,13 +47,15 @@ header.topo > nav > div {
 	ul.list-infos{
 		display:inline-block;
 		width: auto;
+		height:100%;
+		overflow: hidden;
 
 		li{
 			display:inline-block;
 			text-align: center;
 
 			> a{
-				padding:11px 15px 7px 15px;
+				padding:10px 15px 7px 15px;
 				height: 60px;
 				display:block;
 				text-decoration:none;
