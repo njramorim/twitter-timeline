@@ -64,6 +64,8 @@ var App = function (_Component) {
         _react2.default.createElement(_Header2.default, {
           bannerImg: this.state.banner,
           logo: this.state.logo,
+          name: this.state.name,
+          screenName: this.state.screenName,
           nTweets: this.state.nTweets,
           nSeguindo: this.state.nSeguindo,
           nSeguidores: this.state.nSeguidores,
@@ -161,7 +163,7 @@ function convertTime(hrPostagem) {
          months: _months.months
       });
       var data = (0, _moment2.default)(hrPostagem);
-      var dataDia = data.format('DD');
+      var dataDia = data.format('D');
       var dataMes = data.format('MMMM');
       var dataMesRedux = dataMes.substr(0, 3);
       var output = dataDia + ' de ' + dataMesRedux;
@@ -787,15 +789,29 @@ var HeaderNav = function (_Component) {
 	function HeaderNav(props) {
 		_classCallCheck(this, HeaderNav);
 
-		return _possibleConstructorReturn(this, (HeaderNav.__proto__ || Object.getPrototypeOf(HeaderNav)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (HeaderNav.__proto__ || Object.getPrototypeOf(HeaderNav)).call(this, props));
+
+		_this.state = {
+			stop: false
+		};
+		return _this;
 	}
 
 	_createClass(HeaderNav, [{
+		key: "handleScroll",
+		value: function handleScroll(el) {}
+	}, {
+		key: "componentDidMount",
+		value: function componentDidMount() {}
+	}, {
+		key: "componentWillUnmount",
+		value: function componentWillUnmount() {}
+	}, {
 		key: "render",
 		value: function render() {
 			return _react2.default.createElement(
 				"nav",
-				null,
+				{ className: "pageNav" },
 				_react2.default.createElement(
 					"div",
 					null,
@@ -808,7 +824,7 @@ var HeaderNav = function (_Component) {
 							_react2.default.createElement(
 								"a",
 								{ href: "#" },
-								_react2.default.createElement("img", { src: this.props.logo })
+								_react2.default.createElement("img", { className: "logoImg", src: this.props.logo })
 							)
 						),
 						_react2.default.createElement(
@@ -817,20 +833,30 @@ var HeaderNav = function (_Component) {
 							_react2.default.createElement(
 								"a",
 								{ href: "#" },
-								"americanas.com",
+								_react2.default.createElement("img", { className: "miniLogo", src: this.props.logo })
+							),
+							_react2.default.createElement(
+								"b",
+								null,
 								_react2.default.createElement(
-									"span",
-									null,
-									"americanascom"
+									"a",
+									{ href: "#" },
+									this.props.name
 								)
 							),
 							_react2.default.createElement(
 								"a",
 								{ href: "https://twitter.com/help/verified", target: "_blank" },
+								_react2.default.createElement("i", null)
+							),
+							_react2.default.createElement(
+								"span",
+								null,
 								_react2.default.createElement(
-									"i",
-									null,
-									"verified"
+									"a",
+									{ href: "#" },
+									"@",
+									this.props.screenName
 								)
 							)
 						)
@@ -1871,6 +1897,8 @@ var Header = function (_Component) {
 				}),
 				_react2.default.createElement(_HeaderNav2.default, {
 					logo: this.props.logo,
+					name: this.props.name,
+					screenName: this.props.screenName,
 					nTweets: this.props.nTweets,
 					nSeguindo: this.props.nSeguindo,
 					nSeguidores: this.props.nSeguidores,

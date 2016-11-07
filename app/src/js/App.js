@@ -28,6 +28,8 @@ export default class App extends Component {
       	<Header 
           bannerImg = {this.state.banner}
           logo = {this.state.logo}
+          name = {this.state.name}
+          screenName = {this.state.screenName}
           nTweets = {this.state.nTweets}
           nSeguindo = {this.state.nSeguindo}
           nSeguidores = {this.state.nSeguidores}

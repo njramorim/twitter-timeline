@@ -26,6 +26,8 @@ export default class Header extends Component {
 				>
 				<HeaderNav 
 					logo={this.props.logo} 
+					name ={this.props.name}
+					screenName ={this.props.screenName}
 		          	nTweets = {this.props.nTweets}
 		          	nSeguindo = {this.props.nSeguindo}
 		          	nSeguidores = {this.props.nSeguidores}

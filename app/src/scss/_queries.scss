@@ -1,0 +1,145 @@
+@media screen and (max-width: 1400px) and (min-width:1201px){
+	header.topo > figure{
+		height:400px;
+	}
+}
+
+@media screen and (max-width: 1200px){
+
+	.contentWrapper,
+	header.topo > nav > div{
+		width:890px;
+		position:relative;
+	}
+
+	header.topo > figure{
+		height:300px;
+	}
+
+	.contentWrapper > section.contentTwo{
+		float:right;
+	}
+
+	.side-box {
+    	width: calc(100% - 10px);
+	}
+}
+
+@media screen and (max-width: 960px){
+	$grid-size: 600px; 
+	$col1-size: 300px;
+
+	header.topo > figure{
+		height:200px;
+	}
+	header.topo > nav > div{
+		width: $grid-size;
+	}
+	header.topo > nav > div > h1 {
+	    width: 250px;
+	    overflow: hidden;
+	    height: 60px;
+	    float: left;
+	    position: absolute;
+	}
+	header.topo > nav > div > h1 figure{
+		display:none;
+	}
+	header.topo > nav > div > h1 figcaption{
+		display:block;
+		top:0px;
+	}
+	header.topo > nav > div ul.list-infos {
+	    float: right;
+	    margin-top: 0px;
+	    transform: scale(0.85);
+	    transform-origin: right bottom;
+	}
+
+	.contentWrapper{
+		width: $grid-size;
+		> section{
+			width: $grid-size;
+			&:first-of-type{
+				width: $grid-size;
+			}
+			&:last-of-type{
+				display:none
+			}
+		}
+	}
+
+	.summary{
+		padding-top:0px;
+		> * {
+			width:100%;
+		}
+		div.infos h1{
+			display:none;
+		}
+		div.infos > p{
+			display:inline-block;
+			margin-right:15px;
+		}
+	}
+
+
+
+}
+
+
+@media screen and (max-width: 640px){
+	$grid-size: 300px; 
+
+	header.topo > figure{
+		height:100px;
+	}
+	.contentWrapper,
+	header.topo > nav > div{
+		width: $grid-size;
+		> section{
+			width: $grid-size;
+			&:first-of-type{
+				width: $grid-size;
+			}
+			&:last-of-type{
+				display:none
+			}
+		}
+	}
+
+	header.topo > nav > div ul.list-infos{
+		display:none
+	}
+
+	.twitNav > ul > li{
+		font-size:13px;
+	}	
+	.twitFeed > .feedList > li > article{
+		margin-left:0px;
+	}
+	.feedList > li > article > header{
+		margin-left: 53px;
+	}
+	.feedList > li > article > header > figure  a ,
+	.feedList > li > article > header > figure  span {
+		display:block;
+	}
+	.feedList > li > article > header > figure:after{
+		display:none;
+	}
+	.feedList > li > article > header > .time {
+		display:block;
+	    font-size: 13px;
+	    margin-top: 5px;
+	    margin-bottom: 10px;
+	}
+	.postagem{
+	    font-size: 15px;
+    	line-height: 20px;
+    }
+
+    .tweetActions > ul > li{
+    	width:60px;
+    }
+}

@@ -19,7 +19,7 @@ export function convertTime(hrPostagem){
            months
         })
         let data = moment(hrPostagem)
-        let dataDia = data.format('DD')
+        let dataDia = data.format('D')
         let dataMes = data.format('MMMM')
         let dataMesRedux = dataMes.substr(0, 3)
         let output =  dataDia + ' de ' +  dataMesRedux
