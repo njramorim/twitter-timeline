@@ -27,9 +27,11 @@ export function twitterInfos(el){
     }
 
     function fmtDate(string) {
+        console.log(string)
         moment.updateLocale('pt', {
            months
         })
+        
         let data = moment(string)
         let dataMes = data.format('MMMM')
         let dataAno = data.format('YYYY')

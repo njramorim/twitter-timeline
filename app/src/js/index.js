@@ -6,7 +6,11 @@ import Init  from './Init'
 //   // Enable React devtools
 //   window.React = React;
 // }
-
-console.log(process.env.NODE_ENV) 
+const dev = false
+if(!dev){
+	console.log = function() {}
+	console.warn = console.log
+	console.error = console.log
+}
 
 ReactDOM.render(Init, document.getElementById('app'))

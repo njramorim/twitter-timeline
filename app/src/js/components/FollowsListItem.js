@@ -14,12 +14,12 @@ export default class FollowsListItem extends Component {
 		return(
 			<li className="followsItem">
 				<figure>
-					<a href="#">
-						<img src="https://pbs.twimg.com/profile_images/717052832973774850/RdeLXx3o_normal.jpg" />
+					<a href={this.props.link} target="_blank">
+						<img src={this.props.image} />
 						<figcaption>
-							<b>Marcelo Tas</b>
-							<i></i>
-							<span>MarceloTacsifer</span>
+							<b>{this.props.name}</b>
+							<i className={this.props.verified}></i>
+							<span>{this.props.screen_name}</span>
 						</figcaption>
 					</a>	
 				</figure>	

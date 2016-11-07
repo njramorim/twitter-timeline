@@ -7,6 +7,14 @@
             return 'users/show';
         }
 
+        else if (isset($_GET['get_follows'])) {
+            return 'friends/list';
+        }
+
+        else if(isset($_GET['get_trends'])) {
+            return 'trends/place';
+        }
+
         return 'statuses/user_timeline';
     }
 
@@ -14,6 +22,19 @@
         if (isset($_GET['get_info'])) {
             $params = array(
                 'screen_name'  => $_GET['screen_name'],
+            );
+        }
+
+        else if (isset($_GET['get_follows'])) {
+            $params = array(
+               'screen_name'  => $_GET['screen_name'],
+               'count'  => $_GET['count'],
+            );
+        }
+
+        else if(isset($_GET['get_trends'])) {
+            $params = array(
+               'id'  => $_GET['id']
             );
         }
 

@@ -9,9 +9,10 @@ export default class TFeedItemBody extends Component{
 	render () {   
 		return (
 			<main className="postagem">
-				<p>
-					{this.props.text}
-				</p>
+				<p 
+					dangerouslySetInnerHTML={{ __html: this.props.text}}
+				/
+				>
 			</main>
 		)
 	}

@@ -13,11 +13,10 @@ export default class TopicsListItem extends Component {
 	render() {
 		return(
 			<li className="topicsItem">
-				<a href="#">
-					<b>#SegundaDetremuraSDV</b>
+				<a href={this.props.link}>
+					<b>{this.props.name}</b>
 					<p>
-						<span>8.203 </span>
-						Tweets
+						<span>{this.props.tweet_volume}</span>
 					</p>
 				</a>
 			</li>

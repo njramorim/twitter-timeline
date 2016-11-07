@@ -44,7 +44,7 @@ export function getTweets(el, type, val, nTweet){
                 }
                 
             }).then(function (result){
-                // console.log(result.data)
+                console.log(result.data)
                 moreTweets(el, result)
                 return result.data
             })

@@ -1,4 +1,4 @@
-gulp compile
-gulp watch
+npm install
 
-gulp cleanDist
+gulp watch = run and open dev
+gulp build = run and open build

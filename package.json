@@ -23,6 +23,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-connect-php": "0.0.8",
+    "gulp-exit": "0.0.2",
     "gulp-livereload": "^3.8.1",
     "gulp-print": "^2.0.1",
     "gulp-sass": "^2.3.2",

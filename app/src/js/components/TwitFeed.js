@@ -25,6 +25,31 @@ const TwitFeed = React.createClass({
     console.log(vezes)
   },
 
+  returnTextLinks(string) {
+    let partes = string.split(' ')
+    let link = 'http'
+    let arroba = '#'
+    let inteiro = ''
+
+        partes.forEach((parte) => {
+
+            if(parte.indexOf(link) > -1 && parte.charAt(0) != '#'){
+              parte = '<a href="'+ parte +'" target="_blank">' + parte + '</a>'
+
+            } else if( parte.charAt(0) === '#') {
+              console.log(parte)
+              let newParte = parte.substring(0, parte.indexOf('http'))
+              newParte = '<a href="https://twitter.com/hashtag/'+ newParte.slice(1) +'?src=hash ">' + newParte + '</a>'
+              parte = newParte
+            }
+
+            parte = parte + ' '
+            inteiro = inteiro + parte
+        }) 
+
+    return inteiro
+  },
+
   
   componentDidMount() {
     getTweets(this, 'loadFirst', '', nTweet)
@@ -54,7 +79,7 @@ const TwitFeed = React.createClass({
                 userAvatar = {tweet.user.profile_image_url}
                 hora = {convertTime(tweet.created_at)}
 
-                text = {tweet.text}
+                text = {this.returnTextLinks(tweet.text)}
                 retweets = {tweet.favorite_count}
                 likes = {tweet.retweet_count}
 

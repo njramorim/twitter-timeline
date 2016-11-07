@@ -1,15 +1,18 @@
 import React, {Component} from 'react'
 import TopicsListItem from './TopicsListItem'
+import {getTrends} from './../actions/getTrends'
 
-export default class TopicsList extends Component {
-	constructor(props){
-		super(props)
-	}
+const TopicsList = React.createClass({
+	getInitialState() {
+	    return {
+	      trends: []
+	    }
+	},
 
 
 	componentDidMount() {
-
-	}
+		getTrends(this)
+	},
 
 	render() {
 		return(
@@ -21,16 +24,25 @@ export default class TopicsList extends Component {
 				</header>
 				<main>
 					<ul>
-						<TopicsListItem />
-						<TopicsListItem />
-						<TopicsListItem />
-						<TopicsListItem />
-						<TopicsListItem />
-						<TopicsListItem />
+						{this.state.trends.map((trend , i) => {
+							return(
+								<TopicsListItem 
+									key={i}
+									link={trend.url}
+									name={trend.name}
+									tweet_volume={trend.tweet_volume != null? trend.tweet_volume + ' Tweets' : null}
+								/
+								>
+							)
+						})}
 					</ul>
 				</main> 
 			</div>
 		)
 	}
 
-}
+})
+
+
+
+export default TopicsList
