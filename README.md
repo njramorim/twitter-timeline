@@ -3,4 +3,4 @@ npm install
 gulp watch = run and open dev
 
 
-gulp build = run and open build
+gulp build = create, run and open build
