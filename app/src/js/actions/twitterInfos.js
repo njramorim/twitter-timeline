@@ -1,7 +1,10 @@
 import axios from 'axios'
 import moment from 'moment'
+import {months} from './months'
 
-export function twitterInfos(info, param, el){
+
+
+export function twitterInfos(el){
 
     function avatar(logoString) {
         let ls = logoString
@@ -25,10 +28,7 @@ export function twitterInfos(info, param, el){
 
     function fmtDate(string) {
         moment.updateLocale('pt', {
-            months : [
-                "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
-                "agosto", "setembro", "outubro", "novembro", "dezembro"
-            ]
+           months
         })
         let data = moment(string)
         let dataMes = data.format('MMMM')
@@ -55,71 +55,69 @@ export function twitterInfos(info, param, el){
         return inteiro
     }
 
+    const sname = 'americanascom'
 
-    axios.get('serv/'+info+'.php')
-    .then(function (result){
+    axios.get('serv/get_twitter.php', {
+        params: {
+            get_info: true,
+            screen_name: sname
+        }
+        
+    }).then(function (result){
+        console.log(result)
         
         const rd = result.data
-        console.log(rd)
-    	//console.log(JSON.stringify(result.data))
-    	//console.log(result.data[param])
-        // console.log(info+': ')
-        // console.log(result)
-        // console.log( JSON.stringify(rd) )
 
-        if (info === 'account'){ 
-        	el.setState({
-                id: rd['id'],
-                name: rd['name'],
-        		screenName: rd['screen_name'],
+    	el.setState({
+            id: rd['id'],
+            name: rd['name'],
+    		screenName: rd['screen_name'],
 
-        		banner: rd['profile_banner_url'],
-                logo: avatar(rd['profile_image_url']),
+    		banner: rd['profile_banner_url'],
+            logo: avatar(rd['profile_image_url']),
 
-                location:  rd['location'],
-                description: findLink(
-                    rd['description'], 
-                    rd['entities']
-                ),
+            location:  rd['location'],
+            description: findLink(
+                rd['description'], 
+                rd['entities']
+            ),
 
-                timezone: rd['time_zone'],
-                verified: rd['verified'],
-                utcOffset: rd['utc_offset'],
-                created: fmtDate(rd['created_at']),
+            timezone: rd['time_zone'],
+            verified: rd['verified'],
+            utcOffset: rd['utc_offset'],
+            created: fmtDate(rd['created_at']),
 
 
-                url: rd['url'],
+            url: rd['url'],
 
-                nTweets: fmtNumber(
-                    rd['statuses_count'], 
-                    2   ,
-                    ',' , 
-                    3   , 
-                    'mil'
-                ),
+            nTweets: fmtNumber(
+                rd['statuses_count'], 
+                2   ,
+                ',' , 
+                3   , 
+                'mil'
+            ),
 
-                nSeguindo: fmtNumber(
-                    rd['friends_count'], 
-                    1   ,
-                    '.' , 
-                    4   , 
-                    ''
-                ),
+            nSeguindo: fmtNumber(
+                rd['friends_count'], 
+                1   ,
+                '.' , 
+                4   , 
+                ''
+            ),
 
-                nSeguidores: fmtNumber( 
-                    rd['followers_count'],
-                    0   ,
-                    '' , 
-                    3   , 
-                    'mil'
-                ),
+            nSeguidores: fmtNumber( 
+                rd['followers_count'],
+                0   ,
+                '' , 
+                3   , 
+                'mil'
+            ),
 
-                nCurtidas: rd['favourites_count'],
-        	})
+            nCurtidas: rd['favourites_count'],
+    	})
 
-            return rd
-        
-        }
+        return rd
 
     })
 

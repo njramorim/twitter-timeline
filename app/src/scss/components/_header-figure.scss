@@ -13,6 +13,10 @@ header.topo > figure{
 	    bottom: -9999px;
 	    margin: auto 0;
 	    width: 100%;
+	    transition: top 0.15s ease-out;
+	    &.volta{
+	    	transition: top 0.3 ease-in-out;
+	    }
 	}
 
 	&:before {

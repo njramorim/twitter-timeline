@@ -8,8 +8,10 @@ export default class TFeedItemBody extends Component{
 
 	render () {   
 		return (
-			<main>
-				{this.props.text}
+			<main className="postagem">
+				<p>
+					{this.props.text}
+				</p>
 			</main>
 		)
 	}

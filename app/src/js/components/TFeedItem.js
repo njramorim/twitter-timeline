@@ -19,11 +19,17 @@ export default class TFeedItem extends Component{
 						userLink = {this.props.userLink}
 						userAvatar = {this.props.userAvatar}
 						hora = {this.props.hora}
-					/>
+					/
+					>
 					<TFeedItemBody 
 						text={this.props.text}
-					/>
-					<TFeedItemFooter />
+					/
+					>
+					<TFeedItemFooter 
+						retweets = {this.props.retweets}
+						likes = {this.props.likes}
+					/
+					>
 				</article>
 			</li>
 	    )

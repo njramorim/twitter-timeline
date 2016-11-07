@@ -7,4 +7,6 @@ import Init  from './Init'
 //   window.React = React;
 // }
 
+console.log(process.env.NODE_ENV) 
+
 ReactDOM.render(Init, document.getElementById('app'))

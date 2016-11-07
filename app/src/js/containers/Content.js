@@ -1,7 +1,9 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import ContentSummary from './../components/ContentSummary'
 import TwitNav from './../components/TwitNav'
 import TwitFeed from './../components/TwitFeed'
+import FollowsList from './../components/FollowsList'
+import TopicsList from './../components/TopicsList'
 import {twitterInfos} from './../actions/twitterInfos'
 
 let tweets = []
@@ -53,7 +55,8 @@ export default class Content extends Component {
 					<TwitFeed />
 				</section>
 				<section className="contentThree">
-					barra right
+					<FollowsList />
+					<TopicsList />
 				</ section>
 			</div>
 		)

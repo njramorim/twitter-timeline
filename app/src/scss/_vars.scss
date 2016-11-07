@@ -13,6 +13,7 @@ $darkGray-color: #8899a6;
 $dark-color: #66757f;
 $darker-color: #292f33;
 $green-color: #19cf86; 
+$red-color: #e2264d;
 
 
 //preSets
@@ -28,4 +29,54 @@ $green-color: #19cf86;
     position: absolute;
     height: 100%;
     width: 100%;
+}
+
+button.close{
+	color: #ccd6dd;
+	cursor:pointer;
+	font-size: 12px;
+	width:14px;
+	height:14px;
+	background: transparent;
+	border:0px;
+	text-align:center;
+	line-height:14px;
+	outline: 0;
+	&:before{
+		content: "\f045";
+		font-family: 'rosettaicons';
+	}
+}
+
+button.seguir{
+	cursor: pointer;
+	color: $darker-color;
+	background-color: #f5f8fa;
+    background-image: linear-gradient(#fff,#f5f8fa);
+	border: 0px;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    position: relative; 
+    font-weight: bold;
+   	line-height: normal;
+   	text-align:right;
+
+   	&:before{
+   		content: "\f175";
+   		color: #1da1f2;
+   		font-family: "rosettaicons";
+   		font-size: 16px;
+    	line-height: 15px;
+    	font-weight: normal;
+    	font-style: normal;
+    	text-align: center;
+    	vertical-align: sub;
+    	position:absolute;
+   	}
+
+   	&:hover{
+   		background-color: #e1e8ed;
+   		background-image: linear-gradient(#fff,#e1e8ed);
+    	border-color: #e1e8ed;
+   	}
 }

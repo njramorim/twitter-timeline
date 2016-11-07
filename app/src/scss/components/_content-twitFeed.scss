@@ -20,4 +20,21 @@
 			}
 		}
 	}
+
+	> span{
+	    width: 100%;		
+	    text-align: center;
+	    display: block;
+	    height: 62px;
+	    background: $clean-color;
+	    line-height: 62px;
+	    overflow: hidden;
+	    border-radius: 0px 0px 5px 5px;
+	    border: 1px solid $lightGray-color;
+	    border-top: 0px;
+	    text-indent:-9999px;
+	    background-image: url('../../static/img/spinner-rosetta-gray-32x32.gif');
+	    background-repeat: no-repeat;
+	    background-position: center;
+	}
 }

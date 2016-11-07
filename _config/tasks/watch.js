@@ -17,8 +17,8 @@ gulp.task('watch',['browser-sync'],() => {
   gulp.watch([
   	config.dev + '/**/*.html', 
   	config.dev + '/**/*.php',
-  	config.dev + '/**/*.css', 
-  	config.dev + '/**/*.js', 
+  	config.dev + '/**/*.js',
+  	config.dev + '/**/*.css',
     config.dev + '/static/**/*', 
   ], browserSync.reload)
 

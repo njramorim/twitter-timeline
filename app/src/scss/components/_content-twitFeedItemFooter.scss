@@ -45,7 +45,13 @@
 			}
 		}
 		span{
-
+			color: inherit;
+		    display: inline-block;
+		    font-size: 12px;
+		    font-weight: bold;
+		    margin-left: 6px;
+		    position: relative;
+		    top: -2px;
 		}
 		p{
 			display:none;
@@ -77,6 +83,9 @@
 	}
 	&.act-like button:hover i{
 		background-position: -18px 0px;
+	}
+	&.act-like button:hover span{
+		color: $red-color
 	}
 
 	&.act-plus i:before{

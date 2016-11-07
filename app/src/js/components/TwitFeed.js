@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import TFeedItem from './TFeedItem'
-import {twitterInfos} from './../actions/twitterInfos'
-import axios from 'axios'
+import {getTweets} from './../actions/getTweets'
+import {convertTime} from './../actions/convertTime' 
 
+let vezes = 0
+let locked = false
+const nTweet = 100
 
 const TwitFeed = React.createClass({
    
@@ -12,90 +15,54 @@ const TwitFeed = React.createClass({
     }
   },
 
-
-  getTweets(id) {
-    const rThis = this
-      axios.get('serv/initweet.php', {
-        params: {
-          screen_name: 'americanascom',
-          count: 10
-        }
-
-      }).then((result) =>{   
-        console.log('tweets: ', result.data) 
-
-        let quantos = result.data.length
-        rThis.setState({
-          tweets: result.data,
-          quant: quantos,
-          lastItem: result.data[quantos - 1].id
-        });
-        console.log('first: ', result.data[0].id)
-        console.log('last: ', result.data[quantos - 1].id)
-      })
+  componentWillMount() { 
+    window.scrollTo(0,0) 
   },
-
 
   loadMore() {
-    const rThis = this
-      axios.get('serv/tweets.php', {
-        params: {
-          screen_name: 'americanascom',
-          count: 10,
-          max_id: rThis.state.lastItem
-        }
-
-      }).then((result) =>{   
-        let jaTem = rThis.state.tweets
-        let quantos = result.data.length
-        let novos = result.data
-        let agoraTem = jaTem.concat(novos)
-        
-        console.log('jaTinha: ', rThis.state.tweets )
-        rThis.setState({
-          tweets: agoraTem,
-          quant: quantos,
-          lastItem: result.data[quantos - 1].id
-        });
-        console.log('second first: ', result.data[0].id)
-        console.log('second last: ', result.data[quantos - 1].id)
-        console.log('agoraTem: ', rThis.state.tweets )
-      })
+    vezes++
+    getTweets(this, 'loadMore', this.state.lastItem, nTweet)
+    console.log(vezes)
   },
+
   
   componentDidMount() {
-    this.serverRequest = this.getTweets()
+    getTweets(this, 'loadFirst', '', nTweet)
+    let rThis = this
+    window.onscroll = function (e) {
+      if((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+        rThis.loadMore()
+      }
+    }
   },
-  
-  componentWillUpdate() {
 
-  },
+  componentDidUpdate() { 
 
-  componentWillUnmount() {
-    this.serverRequest.abort();
   },
   
   render() {
     return (
       <div className="twitFeed">
-            <button onClick={this.loadMore}> botones</button>
         <ol className="feedList">
           {this.state.tweets.map((tweet , i) => {
-     
             return (
               <TFeedItem 
-                key={i+'-'+tweet.id}
+                key={tweet.id}
                 userName = {tweet.user.name}
                 userScreenName = {tweet.user.screen_name}
                 userLink = {'https://twitter.com/'+ tweet.user.screen_name}
                 userAvatar = {tweet.user.profile_image_url}
-                hora = {tweet.created_at}
+                hora = {convertTime(tweet.created_at)}
 
                 text = {tweet.text}
+                retweets = {tweet.favorite_count}
+                likes = {tweet.retweet_count}
+
               />
             )
           })}
         </ol>
+        <span>Carregando</span>
       </div>
     )
   }

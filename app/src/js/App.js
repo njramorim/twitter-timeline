@@ -1,12 +1,9 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import Header from './containers/Header'
 import Content from './containers/Content'
 
 import {twitterInfos} from './actions/twitterInfos'
-
-const propTypes = {
-
-}
+import axios from 'axios'
 
 export default class App extends Component {
 
@@ -19,18 +16,11 @@ export default class App extends Component {
 
   componentWillMount() {
     console.log('About to mount App')
-    twitterInfos('account', '', this) 
-
   }
 
   componentDidMount() {
-  
+    twitterInfos(this) 
   }
-
-  componentWillUnmount() {
-
-  }
-
 
   render() {
     return (

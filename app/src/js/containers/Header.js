@@ -20,14 +20,18 @@ export default class Header extends Component {
 		return(
 			<header className="topo">
 				<TopBar />
-				<HeaderFigure bannerImg={this.props.bannerImg} />
+				<HeaderFigure 
+					bannerImg={this.props.bannerImg} 
+				/
+				>
 				<HeaderNav 
 					logo={this.props.logo} 
 		          	nTweets = {this.props.nTweets}
 		          	nSeguindo = {this.props.nSeguindo}
 		          	nSeguidores = {this.props.nSeguidores}
 		          	nCurtidas = {this.props.nCurtidas}
-				/>
+				/
+				>
 			</header>
 		)
 	}

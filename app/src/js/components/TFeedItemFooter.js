@@ -20,14 +20,14 @@ export default class TFeedItemFooter extends Component{
 						<button type="button">
 							<p>Retweetar</p>
 							<i></i>
-							<span></span>
+							<span>{this.props.retweets}</span>
 						</button>
 					</li>
 					<li  className="act-like">
 						<button type="button">
 							<p>Curtir</p>
 							<i></i>
-							<span></span>
+							<span>{this.props.likes}</span>
 						</button>
 					</li>
 					<li  className="act-plus">
