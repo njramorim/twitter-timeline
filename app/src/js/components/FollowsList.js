@@ -36,8 +36,7 @@ const FollowsList = React.createClass({
 									image={user.profile_image_url}
 									verified = {user.verified}
 	 
-								/
-								>
+								/>
 							)
 						})}
 					</ul>
@@ -48,7 +47,6 @@ const FollowsList = React.createClass({
 			</div>
 		)
 	}
-
 })
 
 

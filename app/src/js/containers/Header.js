@@ -9,21 +9,13 @@ export default class Header extends Component {
 		super(props)
 	}
 
-	componentWillMount(){
-	}
-
-	componentDidMount() {
-
-	}
-
 	render(){
 		return(
 			<header className="topo">
 				<TopBar />
 				<HeaderFigure 
 					bannerImg={this.props.bannerImg} 
-				/
-				>
+				/>
 				<HeaderNav 
 					logo={this.props.logo} 
 					name ={this.props.name}
@@ -32,8 +24,7 @@ export default class Header extends Component {
 		          	nSeguindo = {this.props.nSeguindo}
 		          	nSeguidores = {this.props.nSeguidores}
 		          	nCurtidas = {this.props.nCurtidas}
-				/
-				>
+				/>
 			</header>
 		)
 	}

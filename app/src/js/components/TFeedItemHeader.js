@@ -1,11 +1,6 @@
 import React, {Component} from 'react'
 
 export default class TFeedItemHeader extends Component{
-    
-	componentWillMount () {
-
-	}
-
 	render () {   
 		return (
 			<header>
@@ -28,21 +23,3 @@ export default class TFeedItemHeader extends Component{
 	}
 }
 
-
-
-// <header>
-// 				<figure>
-// 					<a href="#">
-// 						<img src="https://pbs.twimg.com/profile_images/777959576482287617/taEJPem9_bigger.jpg"/>
-// 						<figcaption>
-// 							<b>americanas.com</b>
-// 							<span>
-// 								@americanascom
-// 							</span>	
-// 						</figcaption>
-// 					</a>
-// 				</figure>
-// 				<p className="time">
-// 					1 h
-// 				</p>
-// 			</header>

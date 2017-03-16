@@ -14,20 +14,12 @@ export default class Content extends Component {
 		this.state = {
 			userName: ''
 		}
-
 	}
 
 
 	componentWillMount() {
     	console.log('getting tweets')
 	}
-
-	componentWillReceiveProps() {
-	}
-
-	componentDidMount() {
-	}
-
 
 	render(){
 		return(
@@ -45,9 +37,7 @@ export default class Content extends Component {
 			            utcOffset = {this.props.utcOffset}
 			            created = {this.props.created}
 
-
 			            url = {this.props.url}
-
 					/>
 				</section>
 				<section className="contentTwo">
@@ -57,7 +47,7 @@ export default class Content extends Component {
 				<section className="contentThree">
 					<FollowsList />
 					<TopicsList />
-				</ section>
+				</section>
 			</div>
 		)
 	}

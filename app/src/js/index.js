@@ -2,10 +2,7 @@ import React     from 'react'
 import ReactDOM  from 'react-dom'
 import Init  from './Init'
 
-// if ( process.env.NODE_ENV !== 'production' ) {
-//   // Enable React devtools
-//   window.React = React;
-// }
+
 const dev = false
 if(!dev){
 	console.log = function() {}

@@ -8,7 +8,6 @@ export function twitterInfos(el){
 
     function avatar(logoString) {
         let ls = logoString
-        // console.log(ls)
 
         let lsSplit = ls.split('_normal')[0]
         let lsAvatar = lsSplit +  '_400x400.jpg'
@@ -22,7 +21,6 @@ export function twitterInfos(el){
         let strJoin = strSep + separator + string.slice(separatorPos, positionEnd)
         let output =  strJoin + ' ' + textEnd
 
-        // console.log(output)
         return output
     }
 
@@ -37,7 +35,6 @@ export function twitterInfos(el){
         let dataAno = data.format('YYYY')
         let output = 'Participa desde ' +  dataMes + ' de ' + dataAno
 
-        // console.log(output)
         return output
     }
 

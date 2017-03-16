@@ -5,9 +5,6 @@ import livereload from 'gulp-livereload'
 import config from './../config'
 
 gulp.task('watch',['browser-sync'],() => {
-
-
-
   livereload.listen()
   gulp.watch(config.devSrc + '/**/*.scss', ['sass'])
 
@@ -21,8 +18,4 @@ gulp.task('watch',['browser-sync'],() => {
   	config.dev + '/**/*.css',
     config.dev + '/static/**/*', 
   ], browserSync.reload)
-
-
-
-
 })

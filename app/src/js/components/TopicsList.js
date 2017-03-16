@@ -31,8 +31,7 @@ const TopicsList = React.createClass({
 									link={trend.url}
 									name={trend.name}
 									tweet_volume={trend.tweet_volume != null? trend.tweet_volume + ' Tweets' : null}
-								/
-								>
+								/>
 							)
 						})}
 					</ul>

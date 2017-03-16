@@ -24,8 +24,5 @@ export function convertTime(hrPostagem){
         let dataMesRedux = dataMes.substr(0, 3)
         let output =  dataDia + ' de ' +  dataMesRedux
         return output
-
     }
-
-   // return postagem
 }

@@ -13,9 +13,7 @@ export function getFollows(el){
 	    }
 	    
 	}).then(function (result){
-		// console.log(result)
 		let rd = result.data.users
-		// console.log(rd)
 
 		if (rd === undefined){
 			return(

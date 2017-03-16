@@ -5,14 +5,6 @@ export default class ContentSummary extends Component {
 		super(props)
 	}
 
-	componentWillMount() {
-		
-	}
-
-	componentDidMount() {
-
-	}
-
 	render(){
 		return(
 			<div className="summary">
@@ -46,7 +38,3 @@ export default class ContentSummary extends Component {
 	}
 }
 
-
-// A maior loja na palma da sua mão: <a href="https://t.co/J5pdYz5brU" target="blank">goo.gl/Ntg9wN</a>
-
-//Participa desde abril de 2009

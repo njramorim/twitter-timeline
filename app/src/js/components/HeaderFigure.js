@@ -50,10 +50,7 @@ export default class HeaderFigure extends Component {
 	render(){
 		return(
 			<figure className = "heroImg">
-				<img 
-					src={this.props.bannerImg} 
-				/
-				>
+				<img src={this.props.bannerImg} />
 			</figure>
 		)
 	}

@@ -22,13 +22,6 @@ function compileBabel(watch) {
       .pipe(livereload())
   }
 
-  // if (watch) {
-  //   bundler.on('update', function() {
-  //     console.log('-> bundling...');
-  //     rebundle();
-  //   });
-  // }
-
   rebundle()
 }
 
@@ -39,6 +32,3 @@ function watchBabel() {
 gulp.task('babel', () => { 
   return compileBabel() 
 })
-// gulp.task('watch', () => { return watch() })
-
-// gulp.task('default', ['watch'])

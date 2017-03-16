@@ -9,18 +9,6 @@ export default class HeaderNav extends Component {
 		}
 	}
 
-	handleScroll(el) {
-	
-	}
-
-	componentDidMount(){
-		
-	}
-
-	componentWillUnmount(){
-	    
-	}
-
 	render(){
 		return(
 			<nav className="pageNav">

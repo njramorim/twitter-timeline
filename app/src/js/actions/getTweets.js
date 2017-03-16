@@ -60,7 +60,6 @@ export function getTweets(el, type, val, nTweet){
             }
             
         }).then(function (result){
-            // console.log(result.data)
             firstTweets(el, result)
             return result.data
         })

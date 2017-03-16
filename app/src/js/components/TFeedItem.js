@@ -4,11 +4,6 @@ import TFeedItemBody from './TFeedItemBody'
 import TFeedItemFooter from './TFeedItemFooter'
 
 export default class TFeedItem extends Component{
-    
-	componentWillMount () {
-
-	}
-
 	render () {   
 	    return (
 			<li>
@@ -19,17 +14,14 @@ export default class TFeedItem extends Component{
 						userLink = {this.props.userLink}
 						userAvatar = {this.props.userAvatar}
 						hora = {this.props.hora}
-					/
-					>
+					/>
 					<TFeedItemBody 
 						text={this.props.text}
-					/
-					>
+					/>
 					<TFeedItemFooter 
 						retweets = {this.props.retweets}
 						likes = {this.props.likes}
-					/
-					>
+					/>
 				</article>
 			</li>
 	    )

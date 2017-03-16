@@ -31,21 +31,20 @@ const TwitFeed = React.createClass({
     let arroba = '#'
     let inteiro = ''
 
-        partes.forEach((parte) => {
+    partes.forEach((parte) => {
+      if(parte.indexOf(link) > -1 && parte.charAt(0) != '#'){
+        parte = '<a href="'+ parte +'" target="_blank">' + parte + '</a>'
 
-            if(parte.indexOf(link) > -1 && parte.charAt(0) != '#'){
-              parte = '<a href="'+ parte +'" target="_blank">' + parte + '</a>'
+      } else if( parte.charAt(0) === '#') {
+        console.log(parte)
+        let newParte = parte.substring(0, parte.indexOf('http'))
+        newParte = '<a href="https://twitter.com/hashtag/'+ newParte.slice(1) +'?src=hash ">' + newParte + '</a>'
+        parte = newParte
+      }
 
-            } else if( parte.charAt(0) === '#') {
-              console.log(parte)
-              let newParte = parte.substring(0, parte.indexOf('http'))
-              newParte = '<a href="https://twitter.com/hashtag/'+ newParte.slice(1) +'?src=hash ">' + newParte + '</a>'
-              parte = newParte
-            }
-
-            parte = parte + ' '
-            inteiro = inteiro + parte
-        }) 
+      parte = parte + ' '
+      inteiro = inteiro + parte
+    }) 
 
     return inteiro
   },
@@ -94,7 +93,3 @@ const TwitFeed = React.createClass({
 })
 
 export default TwitFeed
-
-       // if(tweet.in_reply_to_screen_name != null){
-            //   return null
-            // }

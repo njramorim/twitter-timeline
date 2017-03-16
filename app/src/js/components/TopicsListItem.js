@@ -5,11 +5,6 @@ export default class TopicsListItem extends Component {
 		super(props)
 	}
 
-
-	componentDidMount() {
-
-	}
-
 	render() {
 		return(
 			<li className="topicsItem">

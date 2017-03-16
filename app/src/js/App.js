@@ -34,8 +34,7 @@ export default class App extends Component {
           nSeguindo = {this.state.nSeguindo}
           nSeguidores = {this.state.nSeguidores}
           nCurtidas = {this.state.nCurtidas}
-        /
-        >
+        />
         <Content 
           logoImg = {this.state.logo}
           name = {this.state.name}
@@ -49,8 +48,7 @@ export default class App extends Component {
           created = {this.state.created}
 
           url = {this.state.url}
-        /
-        >
+        />
       </div>
     )
   }
