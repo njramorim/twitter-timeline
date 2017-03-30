@@ -1,6 +1,6 @@
 npm install
 
-gulp watch = run and open dev
+npm start = run and open dev
 
 
-gulp build = create, run and open build
+npm build = create, run and open build
